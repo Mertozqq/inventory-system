@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: Установка Python и зависимостей (backend)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Установка зависимостей backend
+        working-directory: backend
+        run: |
+          pip install -r requirements.txt
+
+      - name: Проверка запуска backend
+        working-directory: backend
+        run: |
+          python -c "import app.main"
+
+      - name: Установка Node.js и зависимостей (frontend)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Установка зависимостей frontend
+        working-directory: frontend
+        run: |
+          npm install
+
+      - name: Сборка frontend
+        working-directory: frontend
+        run: |
+          npm run build
+
+      - name: Сборка Docker-образов
+        run: |
+          docker build -t inventory-backend ./backend
+          docker build -t inventory-frontend ./frontend
+          docker build -t inventory-proxy ./proxy

@@ -1,0 +1,201 @@
+ docker service logs inventory_backend --tail 50
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1406, in main
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     rv = self.invoke(ctx)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |          ^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1269, in invoke
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1406, in main
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return ctx.invoke(self.callback, **ctx.params)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     rv = self.invoke(ctx)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |          ^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 824, in invoke
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1269, in invoke
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return ctx.invoke(self.callback, **ctx.params)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return callback(*args, **kwargs)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 824, in invoke
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 409, in main
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return callback(*args, **kwargs)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     run(
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1406, in main
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 409, in main
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     rv = self.invoke(ctx)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     run(
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 575, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 575, in run
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |          ^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     server.run()
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     server.run()
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 65, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return asyncio.run(self.serve(sockets=sockets))
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return runner.run(main)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return self._loop.run_until_complete(task)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1269, in invoke
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 69, in serve
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     await self._serve(sockets)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return ctx.invoke(self.callback, **ctx.params)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 76, in _serve
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     config.load()
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 433, in load
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     self.loaded_app = import_from_string(self.app)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 824, in invoke
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return callback(*args, **kwargs)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 409, in main
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     run(
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 575, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 22, in import_from_string
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     server.run()
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     raise exc from None
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 65, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 19, in import_from_string
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     module = importlib.import_module(module_str)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     return _bootstrap._gcd_import(name[level:], package, level)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return asyncio.run(self.serve(sockets=sockets))
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 65, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return asyncio.run(self.serve(sockets=sockets))
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/app/app/main.py", line 6, in <module>
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     from .routers import inventory, restaurants, analytics
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return runner.run(main)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return runner.run(main)
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |   File "/app/app/routers/inventory.py", line 5, in <module>
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    |     from models import Ingredient, Stock
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return self._loop.run_until_complete(task)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+inventory_backend.1.w0bgqi41iw2w@docker-desktop    | ModuleNotFoundError: No module named 'models'
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 69, in serve
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     await self._serve(sockets)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 76, in _serve
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     config.load()
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 433, in load
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     self.loaded_app = import_from_string(self.app)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 22, in import_from_string
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return self._loop.run_until_complete(task)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     raise exc from None
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 19, in import_from_string
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     module = importlib.import_module(module_str)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     return _bootstrap._gcd_import(name[level:], package, level)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 69, in serve
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     await self._serve(sockets)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 76, in _serve
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     config.load()
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 433, in load
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     self.loaded_app = import_from_string(self.app)
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/app/app/main.py", line 6, in <module>
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     from .routers import inventory, restaurants, analytics
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |   File "/app/app/routers/inventory.py", line 4, in <module>
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    |     from db import get_db
+inventory_backend.1.w8xwhoffzvdn@docker-desktop    | ModuleNotFoundError: No module named 'db'
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 22, in import_from_string
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     raise exc from None
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 19, in import_from_string
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     module = importlib.import_module(module_str)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     return _bootstrap._gcd_import(name[level:], package, level)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1406, in main
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     rv = self.invoke(ctx)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |          ^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/app/app/main.py", line 6, in <module>
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1269, in invoke
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     from .routers import inventory, restaurants, analytics
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return ctx.invoke(self.callback, **ctx.params)
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |   File "/app/app/routers/inventory.py", line 5, in <module>
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/click/core.py", line 824, in invoke
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return callback(*args, **kwargs)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.c9slkto3z9ty@docker-desktop    |     from models import Ingredient, Stock
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 409, in main
+inventory_backend.1.c9slkto3z9ty@docker-desktop    | ModuleNotFoundError: No module named 'models'
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     run(
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/main.py", line 575, in run
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     server.run()
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 65, in run
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return asyncio.run(self.serve(sockets=sockets))
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return runner.run(main)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return self._loop.run_until_complete(task)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 69, in serve
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     await self._serve(sockets)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 76, in _serve
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     config.load()
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 433, in load
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     self.loaded_app = import_from_string(self.app)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 22, in import_from_string
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     raise exc from None
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 19, in import_from_string
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     module = importlib.import_module(module_str)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     return _bootstrap._gcd_import(name[level:], package, level)
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/app/app/main.py", line 6, in <module>
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     from .routers import inventory, restaurants, analytics
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |   File "/app/app/routers/inventory.py", line 5, in <module>
+inventory_backend.1.8x7oltacfbfp@docker-desktop    |     from models import Ingredient, Stock
+inventory_backend.1.8x7oltacfbfp@docker-desktop    | ModuleNotFoundError: No module named 'models'
