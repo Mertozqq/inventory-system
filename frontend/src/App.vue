@@ -17,21 +17,30 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+
+// Страницы
 import Dashboard from './pages/Dashboard.vue'
 import StockPage from './pages/StockPage.vue'
 import RestaurantList from './pages/RestaurantList.vue'
+import RestaurantPage from './pages/RestaurantPage.vue'
 import NotFound from './pages/NotFound.vue'
 
 // Простая hash-навигация
-const route = ref(window.location.hash)
+const route = ref(window.location.hash || '#/')
 
 window.addEventListener('hashchange', () => {
-  route.value = window.location.hash
+  route.value = window.location.hash || '#/'
 })
 
 const currentView = computed(() => {
+  // Страница конкретного ресторана: #/restaurants/1
+  if (route.value.startsWith('#/restaurants/')) {
+    return RestaurantPage
+  }
+
   switch (route.value) {
     case '#/':
+    case '#':
     case '':
       return Dashboard
     case '#/inventory':

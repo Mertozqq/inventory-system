@@ -1,11 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.db import get_db
 from app.models import Restaurant, Stock
 from app.schemas import RestaurantOut
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/restaurants",
+    tags=["restaurants"]
+)
+
+
+@router.get("/ping")
+def ping():
+    return {"status": "ok"}
 
 
 @router.get("/", response_model=list[RestaurantOut])
@@ -14,18 +22,17 @@ def get_restaurants(db: Session = Depends(get_db)):
     Возвращает список всех ресторанов и агрегированную информацию по каждому.
     """
     restaurants = db.query(Restaurant).all()
-    if not restaurants:
-        raise HTTPException(status_code=404, detail="Нет ресторанов в системе")
 
     result = []
-
     for r in restaurants:
+        # Количество типов ингредиентов
         stock_count = (
             db.query(Stock)
             .filter(Stock.restaurant_id == r.id)
             .count()
         )
 
+        # Дата самого позднего поступления
         latest_delivery = (
             db.query(Stock.expiration_date)
             .filter(Stock.restaurant_id == r.id)
@@ -40,7 +47,7 @@ def get_restaurants(db: Session = Depends(get_db)):
                 address=r.address,
                 is_active=r.is_active,
                 stock_count=stock_count,
-                last_delivery_date=latest_delivery[0] if latest_delivery else None
+                last_delivery_date=latest_delivery[0] if latest_delivery else None,
             )
         )
 

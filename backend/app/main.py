@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .db import get_db, init_db
 from . import models  # чтобы Base.metadata была подхвачена
-from .routers import inventory, restaurants, analytics
+from .routers import inventory, restaurants, analytics, operations
 
 app = FastAPI(
     title="Система управления запасами ресторанов",
@@ -22,6 +22,7 @@ app.add_middleware(
 app.include_router(inventory.router, prefix="/api")
 app.include_router(restaurants.router, prefix="/api")
 app.include_router(analytics.router, prefix="/api")
+app.include_router(operations.router, prefix="/api")
 
 
 @app.get("/api/ping")

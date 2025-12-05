@@ -5,7 +5,15 @@ from app.db import get_db
 from app.models import Ingredient, Stock
 from app.schemas import InventoryResponse
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/inventory",
+    tags=["inventory"],
+)
+
+
+@router.get("/ping")
+def ping():
+    return {"status": "ok"}
 
 
 @router.get("/{restaurant_id}", response_model=list[InventoryResponse])
@@ -16,12 +24,13 @@ def get_inventory(restaurant_id: int, db: Session = Depends(get_db)):
     """
     rows = (
         db.query(
+            Ingredient.id,           # 👈 важно: теперь берём id
             Ingredient.name,
             Ingredient.category,
             Stock.amount,
             Ingredient.unit,
             Ingredient.min_amount,
-            Stock.expiration_date
+            Stock.expiration_date,
         )
         .join(Stock, Stock.ingredient_id == Ingredient.id)
         .filter(Stock.restaurant_id == restaurant_id)
@@ -29,17 +38,20 @@ def get_inventory(restaurant_id: int, db: Session = Depends(get_db)):
     )
 
     if not rows:
-        raise HTTPException(status_code=404, detail="Ресторан не найден или склад пуст")
+        raise HTTPException(
+            status_code=404,
+            detail="Ресторан не найден или склад пуст",
+        )
 
-    result = [
+    return [
         InventoryResponse(
-            name=r[0],
-            category=r[1],
-            amount=r[2],
-            unit=r[3],
-            min_amount=r[4],
-            expiration_date=r[5]
+            ingredient_id=r[0],
+            name=r[1],
+            category=r[2],
+            amount=r[3],
+            unit=r[4],
+            min_amount=r[5],
+            expiration_date=r[6],
         )
         for r in rows
     ]
-    return result

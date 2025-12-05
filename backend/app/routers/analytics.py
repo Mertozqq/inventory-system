@@ -1,62 +1,63 @@
+from datetime import date
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from datetime import date, timedelta
+from sqlalchemy import func
 
 from app.db import get_db
-from app.models import Stock, Ingredient
-from app.schemas import SummaryStats, ExpiringItem
+from app.models import Restaurant, Ingredient, Stock
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/analytics",
+    tags=["analytics"],
+)
 
 
-@router.get("/summary", response_model=SummaryStats)
-def get_summary_stats(db: Session = Depends(get_db)):
+@router.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
+@router.get("/summary")
+def get_summary(db: Session = Depends(get_db)):
     """
-    Агрегированная сводка по запасам: общая сумма остатков,
-    количество критических позиций, активные рестораны.
+    Сводка по системе по пути /api/analytics/summary.
     """
-    total_amount = db.query(Stock).count()
+    total_restaurants = db.query(func.count(Restaurant.id)).scalar() or 0
 
-    critical_count = (
-        db.query(Stock)
+    active_restaurants = (
+        db.query(func.count(Restaurant.id))
+        .filter(Restaurant.is_active == True)  # noqa: E712
+        .scalar()
+        or 0
+    )
+
+    total_ingredients = db.query(func.count(Ingredient.id)).scalar() or 0
+
+    critical_stocks = (
+        db.query(func.count(Stock.id))
         .join(Ingredient, Stock.ingredient_id == Ingredient.id)
-        .filter(Stock.amount < Ingredient.min_amount)
-        .count()
+        .filter(
+            Ingredient.min_amount.isnot(None),
+            Stock.amount < Ingredient.min_amount,
+        )
+        .scalar()
+        or 0
     )
 
-    active_restaurants = db.query(Stock.restaurant_id).distinct().count()
-
-    return SummaryStats(
-        total_items=total_amount,
-        critical_items=critical_count,
-        active_restaurants=active_restaurants
-    )
-
-
-@router.get("/expiring", response_model=list[ExpiringItem])
-def get_expiring_items(db: Session = Depends(get_db)):
-    """
-    Список ингредиентов с истекающим сроком годности в ближайшие 3 дня.
-    """
     today = date.today()
-    threshold = today + timedelta(days=3)
-
-    rows = (
-        db.query(
-            Ingredient.name,
-            Stock.expiration_date,
-            Stock.restaurant_id
-        )
-        .join(Stock, Stock.ingredient_id == Ingredient.id)
-        .filter(Stock.expiration_date <= threshold)
-        .all()
+    expired_stocks = (
+        db.query(func.count(Stock.id))
+        .filter(Stock.expiration_date.isnot(None))
+        .filter(Stock.expiration_date < today)
+        .scalar()
+        or 0
     )
 
-    return [
-        ExpiringItem(
-            name=r[0],
-            expiration_date=r[1],
-            restaurant_id=r[2]
-        )
-        for r in rows
-    ]
+    return {
+        "total_restaurants": total_restaurants,
+        "active_restaurants": active_restaurants,
+        "total_ingredients": total_ingredients,
+        "critical_stocks": critical_stocks,
+        "expired_stocks": expired_stocks,
+    }
